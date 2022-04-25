@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": ["react-app", "react-app/jest", "airbnb", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "no-unused-vars": "warn",
+    "prefer-const": "warn",
+    "no-console": "warn",
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "indent": ["warn", 2],
+    "max-len": ["warn", 120],
+    "semi": ["warn", "always"],
+    "import/order": [
+      "error",
+      {
+        "groups": ["index", "sibling", "parent", "internal", "external", "builtin", "object", "type"],
+        "newlines-between": "always-and-inside-groups"
+      }
+    ],
+    "react/react-in-jsx-scope": ["off"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  }
+}
