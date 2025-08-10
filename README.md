@@ -1,69 +1,129 @@
-# React + TypeScript + Vite
+# React + Vite + TypeScript Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern React application template with TypeScript, built following [Feature-Sliced Design](https://feature-sliced.design/) architecture with best practices and ready-to-use tools.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Core Technologies
+- **[React](https://react.dev/)** - Modern library for building user interfaces
+- **[TypeScript](https://www.typescriptlang.org/)** - Static typing for JavaScript
+- **[Vite](https://vite.dev/)** - Fast build tool and dev server
 
-## Expanding the ESLint configuration
+### Styling System
+- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[Shadcn/ui](https://ui.shadcn.com/)** - Ready-to-use components with modern design
+- **[Radix UI](https://radix-ui.com/)** - Accessible UI primitives
+- **[Lucide React](https://lucide.dev/)** - Modern SVG icons
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Forms & Validation
+- **[React Hook Form](https://react-hook-form.com/)** - Performant forms library
+- **[Zod](https://zod.dev/)** - TypeScript-first schema validation
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Additional UI Libraries
+- **[Recharts](https://recharts.org/)** - Charts library for React
+- **[Next Themes](https://github.com/pacocoursey/next-themes)** - Theme system
+- **[Sonner](https://sonner.emilkowal.ski/)** - Toast notifications
+- **[Date-fns](https://date-fns.org/)** - Date utility library
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Development Tools
+- **[Biome](https://biomejs.dev/)** - Fast linter and formatter
+- **[Husky](https://typicode.github.io/husky/)** - Git hooks
+- **[Lint-staged](https://github.com/lint-staged/lint-staged)** - Run checks on staged files
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📁 Project Architecture (FSD)
+
+The project follows **[Feature-Sliced Design](https://feature-sliced.design/)** - an architectural methodology for frontend projects:
+
+```
+src/
+├── shared/          # 🔧 Reusable resources
+│   ├── ui/          # UI components
+│   ├── lib/         # Utilities and hooks  
+│   └── api/         # API methods
+├── entities/        # 📦 Business entities
+├── features/        # 🎯 User scenarios
+├── widgets/         # 🧩 Composite UI blocks
+├── pages/           # 📄 Application pages
+└── app/             # ⚙️ App initialization
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Path Aliases
+- `@/*` - src directory root
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚦 Commands
+
+```bash
+# Development
+npm run dev          # Start dev server
+npm run build        # Build for production  
+npm run preview      # Preview build
+
+# Code Quality
+npm run lint:format  # Format code
+npm run lint:fix     # Fix linting errors
+npm run lint:check   # Full check and fix
 ```
+
+## 🛠️ Quick Start
+
+1. **Install dependencies**
+```bash
+npm install
+```
+
+2. **Start development**
+```bash
+npm run dev
+```
+
+3. **Open in browser**
+```
+http://localhost:5173
+```
+
+## 🎯 Features
+
+### 🔥 Performance
+- Lightning-fast HMR with Vite
+- SWC for fast React compilation
+- Optimized production builds
+
+### 🛡️ Type Safety
+- Strict TypeScript configuration
+- Runtime validation with Zod  
+- Type-safe forms
+
+### ♿ Accessibility
+- ARIA attributes out of the box
+- Keyboard navigation
+- Screen reader support
+
+### 🎨 Modern DX
+- Tailwind CSS IntelliSense
+- Ready-to-use component variants
+- Automatic code formatting
+
+## 📦 Adding Components
+
+### Shadcn/ui Components
+```bash
+npx shadcn@latest add button
+npx shadcn@latest add form
+```
+
+### Custom Components
+Follow FSD principles - place components in appropriate layers:
+- `shared/ui` - reusable UI components
+- `entities/*/ui` - entity-specific components  
+- `features/*/ui` - feature components
+
+## 📚 Useful Links
+
+- [Feature-Sliced Design](https://feature-sliced.design/) - architecture methodology
+- [Tailwind CSS Docs](https://tailwindcss.com/docs) - styling documentation
+- [Radix UI Primitives](https://radix-ui.com/primitives) - accessible components
+- [React Hook Form Guide](https://react-hook-form.com/get-started) - forms handling
+- [Zod Documentation](https://zod.dev/) - validation schemas
+
+This template provides scalable architecture and excellent developer experience for building modern React applications!
